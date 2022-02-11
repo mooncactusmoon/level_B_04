@@ -7,4 +7,5 @@ if($chk){
    echo 0;
 }
 
+// $Mem->math('count','*',['acc'=>$_POST['acc']]);
 ?>
