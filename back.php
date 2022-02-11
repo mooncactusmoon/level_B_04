@@ -15,7 +15,7 @@
 	<iframe name="back" style="display:none;"></iframe>
 	<div id="main">
 		<div id="top">
-			<a href="?">
+			<a href="index.php">
 				<img src="./icon/0416.jpg">
 			</a>
 			<img src="./icon/0417.jpg">
@@ -38,8 +38,8 @@
 			if (file_exists($file)) {
 				include $file;
 			} else {
-				echo "檔案不存在";
-				include "back/admain.php";
+				// echo "檔案不存在";
+				include "back/admin.php";
 			}
 			?>
 
