@@ -29,7 +29,15 @@
    function login(){
       $.post("api/chk_ans.php",{ans:$("#ans").val()},(chk)=>{
          if(parseInt(chk)){
-            console.log("答對了");
+            // console.log("答對了");
+            $.post("api/chk_pw.php",{table:'member',acc:$("#acc").val(),pw:$("#pw").val()},(res)=>{
+               if(parseInt(res)){
+                  location.href="index.php";
+               }else{
+                  alert("帳號或密碼錯誤");
+               }
+
+            });
          }else{
             alert("對不起，您輸入的驗證碼有誤請您重新輸入");
          }

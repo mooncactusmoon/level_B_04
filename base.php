@@ -124,4 +124,11 @@ function dd($array){
     echo "</pre>";
 }
 $Mem=new DB("member");
+$Admin=new DB("admin");
+/*新增一次就好 
+$admin['acc']='admin';
+$admin['pw']='1234';
+$admin['pr']=serialize([1,2,3,4,5]);
+$Admin->save($admin);*/
+
 ?>
