@@ -68,7 +68,7 @@
 </table>
 
 <script>
-   $("#parent").load("api/get_big.php");
+   $("#parent").load("api/get_type.php");
 
    function newType(type){
       let name,parent;
