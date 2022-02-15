@@ -65,7 +65,7 @@ foreach($rows as $row){
       <td><?=$row['stock'];?></td>
       <td><?=($row['sh']==1)?'販賣中':'已下架';?></td>
       <td>
-         <button>修改</button>
+         <button onclick="location.href='?do=edit_goods&id=<?=$row['id'];?>'">修改</button>
          <button onclick="del('goods',<?=$row['id'];?>)">刪除</button>
          <button onclick="show(<?=$row['id'];?>,1)">上架</button>
          <button onclick="show(<?=$row['id'];?>,0)">下架</button>
@@ -121,4 +121,19 @@ foreach($rows as $row){
          location.reload();
       })
    }
+   /*補充寫法 上面的上下架前面須加上this -> onclick="show(this,<\?=$row['id'];?>,1)"
+   function show(dom,id,sh){
+    $.post("api/save_goods.php",{id,sh},()=>{
+        switch(sh){
+            case 1:
+                $(dom).parent().prev().text("販售中")
+            break;
+            case 0:
+                $(dom).parent().prev().text("已下架")
+            break;
+        }
+
+        //location.reload()
+    })
+   }*/
 </script>
