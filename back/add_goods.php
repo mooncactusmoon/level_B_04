@@ -1,5 +1,5 @@
 <h1 class="ct">新增商品</h1>
-<form action="api/" method="post" enctype="multipart/form-data">
+<form action="api/save_goods.php" method="post" enctype="multipart/form-data">
     <table class="all">
         <tr>
             <td class="tt ct">所屬大分類</td>
@@ -50,7 +50,7 @@
         <tr>
             <td class="tt ct">商品介紹</td>
             <td class="pp">
-            <input type="text" name="intro" id="intro">
+            <textarea name="intro" id="intro" style="width:90%;height:100px"></textarea>
             </td>
         </tr>
 
@@ -62,3 +62,13 @@
     </div>
 </form>
 
+<script>
+
+    $("#big").load('api/get_type.php',()=>{
+        $("#mid").load('api/get_type.php',{parent:$("#big").val()})
+    })
+
+    $("#big").on("change",function(){
+        $("#mid").load("api/get_type.php",{parent:$("#big").val()})
+    })
+</script>
