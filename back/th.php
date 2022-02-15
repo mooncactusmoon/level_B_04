@@ -67,8 +67,8 @@ foreach($rows as $row){
       <td>
          <button>修改</button>
          <button onclick="del('goods',<?=$row['id'];?>)">刪除</button>
-         <button>上架</button>
-         <button>下架</button>
+         <button onclick="show(<?=$row['id'];?>,1)">上架</button>
+         <button onclick="show(<?=$row['id'];?>,0)">下架</button>
       </td>
    </tr>
 <?php
@@ -114,5 +114,11 @@ foreach($rows as $row){
             location.reload();
          })
       }
+   }
+
+   function show(id,sh){
+      $.post("api/save_goods.php",{id,sh},()=>{
+         location.reload();
+      })
    }
 </script>
