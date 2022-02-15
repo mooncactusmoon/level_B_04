@@ -45,6 +45,8 @@
 <hr>
 <h1 class="ct">商品管理</h1>
 <div class="ct"><button onclick="location.href='?do=add_goods'">新增商品</button></div>
+
+
 <table class="all">
    <tr class="tt ct">
       <td>編號</td>
@@ -53,20 +55,26 @@
       <td>狀態</td>
       <td>操作</td>
    </tr>
+<?php
+$rows=$Goods->all();
+foreach($rows as $row){
+?>
    <tr class="pp ct">
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><?=$row['no'];?></td>
+      <td><?=$row['name'];?></td>
+      <td><?=$row['stock'];?></td>
+      <td><?=($row['sh']==1)?'販賣中':'已下架';?></td>
       <td>
          <button>修改</button>
-         <button onclick="del('type')">刪除</button>
+         <button onclick="del('goods',<?=$row['id'];?>)">刪除</button>
          <button>上架</button>
          <button>下架</button>
       </td>
    </tr>
+<?php
+}
+?>
 </table>
-
 <script>
    $("#parent").load("api/get_type.php");
 
