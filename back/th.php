@@ -11,6 +11,37 @@
    <button onclick="newType('mid')">新增</button>
 </div>
 <!-- 分類區 -->
+<table class="all">
+   <?php
+      $bigs=$Type->all(['parent'=>0]);
+      foreach($bigs as $big){
+   ?>
+
+   <tr class="tt">
+      <td><?=$big['name'];?></td>
+      <td class="ct">
+         <button onclick="edit(<?=$big['id'];?>)">修改</button>
+         <button onclick="del('type',<?=$big['id'];?>)">刪除</button>
+      </td>
+   </tr>
+   <?php
+      $mids=$Type->all(['parent'=>$big['id']]);
+      if(count($mids)>0){
+         foreach($mids as $mid){
+   ?>
+   <tr class="pp ct">
+      <td><?=$mid['name'];?></td>
+      <td>
+         <button onclick="edit(<?=$mid['id'];?>)">修改</button>
+         <button onclick="del('type',<?=$mid['id'];?>)">刪除</button>
+      </td>
+   </tr>
+   <?php
+         }
+      }
+   }
+   ?>
+</table>
 <hr>
 <h1 class="ct">商品管理</h1>
 <div class="ct"><button>新增商品</button></div>

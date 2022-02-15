@@ -44,8 +44,10 @@ body
 	display:inline-block;
 	width:65%;
 	padding:2%;
-	min-height:550px;
 	border:#000 1px solid;
+	/* min-height改成max，新增overflow */
+	max-height:550px;
+	overflow: auto;
 }
 #bottom
 {
