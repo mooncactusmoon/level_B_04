@@ -1,12 +1,14 @@
 <h1 class="ct">商品分類</h1>
 <div class="ct">新增大分類
    <input type="text" name="big" id="big">
-   <button onclick='newBig()'>新增</button>
+   <!-- <button onclick='newBig()'>新增</button> -->
+   <button onclick="newType('big')">新增</button>
 </div>
 <div class="ct">新增中分類
    <select name="parent" id="parent"></select>
    <input type="text" name="mid" id="mid">
-   <button onclick='newMid()'>新增</button>
+   <!-- <button onclick='newMid()'>新增</button> -->
+   <button onclick="newType('mid')">新增</button>
 </div>
 <!-- 分類區 -->
 <hr>
@@ -36,11 +38,33 @@
 
 <script>
    $("#parent").load("api/get_big.php");
-   
-   function newBig(){
+
+   function newType(type){
+      let name,parent;
+      switch(type){
+         case "big":
+            name=$("#big").val();
+            parent=0;
+         break;
+         case "mid":
+            name=$("#mid").val();
+            parent=$("#parent").val();
+         break;
+      }
+      $.post("api/save_type.php",{name,parent},()=>{
+         location.reload();
+      });
+   }
+
+   /*function newBig(){
       let big=$("#big").val();
-      $.post("api/new_big.php",{name:big},()=>{
+      $.post("api/save_type.php",{name:big,parent:0},()=>{
          location.reload();
       })
    }
+   function newMid(){
+      $.post("api/save_type.php",{name:$("#mid").val(),parent:$("#parent").val()},()=>{
+         location.reload();
+      })
+   }*/
 </script>
