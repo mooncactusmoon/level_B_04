@@ -41,9 +41,17 @@
                         foreach($bigs as $big){
                                 echo "<div class='ww'>";
                                 echo "<a href=''>";
-                                echo         $big['name'];
+                                echo   $big['name'];
+                                echo "(".$Goods->math('count','*',['big'=>$big['id']]).")";
                                 echo "</a>";
-                                echo "<div class='s'></div>";
+                                $mids=$Type->all(['parent'=>$big['id']]);
+                                if(!empty($mids)){
+                                        foreach($mids as $mid){
+                                        echo "<div class='s'>";
+                                        echo "<a href='' style='background-color:rgb(212,212,212)'>".$mid['name']."</a>";
+                                        echo "</div>";
+                                        }
+                                };
                                 echo "</div>";
 
                         }
