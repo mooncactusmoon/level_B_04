@@ -103,6 +103,10 @@ input[type=text],input[type=password]
 {
 	display:none;
 }
+/* 可自己增加#left .s a 或者增加inline的css 改變全部商品下的a */
+/* #left .s a {
+	background-color: rgb(197, 235, 235);
+} */
 div.ww:hover > div.s
 {
 	display:block;
