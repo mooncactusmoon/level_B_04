@@ -34,7 +34,7 @@
                 <div id="left" class="ct">
                         <div style="min-height:400px;">
                         <!-- 這裡增加 -->
-                        <div class="ww"><a href="#">全部商品(<?=$Goods->math('count','*',['sh'=>1]);?>)</a>
+                        <div class="ww"><a href="?type=0">全部商品(<?=$Goods->math('count','*',['sh'=>1]);?>)</a>
                         <?php
                         /*<div class='ww'><div class='s'></div></div>*/
                         $bigs=$Type->all(['parent'=>0]);
