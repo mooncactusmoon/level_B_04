@@ -18,7 +18,7 @@ $row=$Goods->find(['id'=>$_GET['id']]);
         </tr>
         <tr>
             <td class="tt ct">商品編號</td>
-            <td class="pp">完成分類後自動分配</td>
+            <td class="pp"><?=$row['no']?></td>
         </tr>
         <tr>
             <td class="tt ct">商品名稱</td>
@@ -60,7 +60,7 @@ $row=$Goods->find(['id'=>$_GET['id']]);
 
     </table>
     <div class="ct">
-    <button type="submit">新增</button> | 
+    <button type="submit">修改</button> | 
         <button type="reset">重置</button> | 
         <button type="button" onclick="location.href='?do=th'">返回</button>
     </div>
@@ -69,10 +69,16 @@ $row=$Goods->find(['id'=>$_GET['id']]);
 <script>
 
     $("#big").load('api/get_type.php',()=>{
-        $("#mid").load('api/get_type.php',{parent:$("#big").val()})
+        //大分類的選項們載入完成時候，去選定商品的大分類
+        $("#big option[value='<?=$row['big'];?>']").prop('selected',true);
+        $("#mid").load('api/get_type.php',{parent:$("#big").val()},()=>{
+            //中分類的選項們載入完成時候，去選定商品的中分類
+            $("#mid option[value='<?=$row['mid'];?>']").prop('selected',true);
+        })
     })
 
     $("#big").on("change",function(){
+        $("#mid option[value='<?=$row['big'];?>']").prop('selected',true);
         $("#mid").load("api/get_type.php",{parent:$("#big").val()})
     })
 </script>
