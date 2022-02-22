@@ -28,7 +28,7 @@ if(empty($_SESSION['cart'])){
       $item=$Goods->find($id);
    ?>
    <tr class="pp ct">
-      <td><?=$item['id'];?></td>
+      <td><?=$item['no'];?></td>
       <td><?=$item['name'];?></td>
       <td><?=$qt;?></td>
       <td><?=$item['stock'];?></td>
