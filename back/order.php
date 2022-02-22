@@ -13,7 +13,7 @@
    foreach($rows as $row){
    ?>
    <tr class="pp">
-      <td><?=$row['no'];?></td>
+      <td><a href="?do=detail&id=<?=$row['id'];?>"> <?=$row['no'];?></a></td>
       <td><?=$row['total'];?></td>
       <td><?=$row['acc'];?></td>
       <td><?=$row['name'];?></td>
