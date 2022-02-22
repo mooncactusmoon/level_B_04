@@ -48,6 +48,7 @@ body
 	width:65%;
 	padding:2%;
 	border:#000 1px solid;
+	height: 550px;
 	/* min-height改成max，新增overflow */
 	max-height:550px;
 	overflow: auto;
