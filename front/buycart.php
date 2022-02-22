@@ -35,7 +35,7 @@ if(empty($_SESSION['cart'])){
       <td><?=$item['price'];?></td>
       <td><?=$item['price']*$qt;?></td>
       <td>
-         <img src="icon/0415.jpg" alt="">
+         <img src="icon/0415.jpg" onclick="delCart(<?=$id;?>)">
       </td>
    </tr>
    <?php
@@ -54,3 +54,11 @@ if(empty($_SESSION['cart'])){
 }
 
 ?>
+
+<script>
+   function delCart(id){
+      $.post("api/del_cart.php",{id},()=>{
+         location.href='?do=buycart';
+      })
+   }
+</script>
