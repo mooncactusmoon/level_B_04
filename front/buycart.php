@@ -36,6 +36,7 @@ if(empty($_SESSION['cart'])){
       <td><?=$item['price']*$qt;?></td>
       <td>
          <img src="icon/0415.jpg" onclick="delCart(<?=$id;?>)">
+         <!-- <img src="icon/0415.jpg" onclick="delCart(this,<\?=$id;?>)"> -->
       </td>
    </tr>
    <?php
@@ -61,4 +62,10 @@ if(empty($_SESSION['cart'])){
          location.href='?do=buycart';
       })
    }
+   // 補充 - 網頁不重整的方式 (搭配39行-純前端作法) 
+   //function delCart(dom,id){
+   //    $.post("api/del_cart.php",{id},()=>{
+   //       $(dom).parents('tr').remove()
+   //    })
+   // }
 </script>
