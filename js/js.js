@@ -9,3 +9,9 @@ function del(table,id){
 		 location.reload()
 	})
 }
+
+function logout(user){
+	$.post("api/logout.php",{user},()=>{
+		location.href="index.php";
+	})
+}

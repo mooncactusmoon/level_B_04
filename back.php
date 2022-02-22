@@ -39,7 +39,7 @@ $right=unserialize($user['pr']);
 				<?=(in_array(4,$right))?"<a href='?do=bot'>頁尾版權管理</a>":"";?>
 				<?=(in_array(5,$right))?"<a href='?do=news'>最新消息管理</a>":"";?>
 
-				<a href="?do=logout" style="color:#f00;">登出</a>
+				<a href="javascript:logout('admin')" style="color:#f00;">登出</a>
 			</div>
 		</div>
 		<div id="right">
